@@ -1,0 +1,41 @@
+# Version control
+.git
+.gitignore
+
+# Python cache / artifacts
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+
+# Virtual environments
+.venv
+venv/
+
+# Environment files (secrets never shipped into the image)
+.env
+.env.*
+
+# Build artifacts
+dist/
+build/
+
+# Editors / IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS dust
+.DS_Store
+Thumbs.db
+
+# Agent / tools
+.codewhale/
+
+# Source‑only docs (not needed at runtime)
+README.md
+
+# Lock file (uv.lock not present; pyproject.toml is the source of truth)
+uv.lock
