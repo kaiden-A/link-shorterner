@@ -21,6 +21,7 @@ from app.config import settings
 
 # Import all models so that Base.metadata is populated
 import app.models.links  # no-qa
+import app.models.clicks  # no-qa
 
 target_metadata = Base.metadata
 

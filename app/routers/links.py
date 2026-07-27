@@ -3,6 +3,7 @@ from sqlalchemy.orm import Session
 
 from app.database import get_db
 from app.schemas.links import LinkCreate, LinkResponse
+from app.schemas.clicks import LinkStats
 from app.services.links_services import LinksServices
 
 router = APIRouter(prefix="/links", tags=["links"])
@@ -18,3 +19,9 @@ def create_short_link(link_data: LinkCreate, db: Session = Depends(get_db)):
 def list_all_links(db: Session = Depends(get_db)):
     service = LinksServices(db)
     return service.list_links()
+
+
+@router.get("/{slug}/stats", response_model=LinkStats)
+def get_link_stats(slug: str, db: Session = Depends(get_db)):
+    service = LinksServices(db)
+    return service.get_stats(slug)
