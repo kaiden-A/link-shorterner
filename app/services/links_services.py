@@ -29,10 +29,6 @@ class LinksServices:
         slug = link_data.slug
 
         if slug:
-            if len(slug) < 3 or len(slug) > 32:
-                raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Slug must be between 3 and 32 characters")
-            if not slug.isalnum():
-                raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Slug must be alphanumeric")
             existing = self.db.query(Link).filter(Link.slug == slug).first()
             if existing:
                 raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail=f"Slug '{slug}' already exists")
