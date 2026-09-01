@@ -17,6 +17,7 @@ COPY pyproject.toml .
 RUN pip install --no-cache-dir \
         "alembic>=1.18.5" \
         "bcrypt>=5.0.0" \
+        "cryptography>=50.0.0" \
         "fastapi>=0.139.0" \
         "psycopg[binary]>=3.3.4" \
         "pydantic-settings>=2.14.2" \

@@ -19,6 +19,15 @@ class ClickResponse(BaseModel):
         from_attributes = True
 
 
+class DailyClicks(BaseModel):
+    date: str
+    clicks: int
+
+
 class LinkStats(BaseModel):
     total_clicks: int
     by_source: dict[str, int]
+    by_device: dict[str, int]
+    by_browser: dict[str, int]
+    by_os: dict[str, int]
+    daily_clicks: list[DailyClicks]

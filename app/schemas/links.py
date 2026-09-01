@@ -6,6 +6,11 @@ class LinkCreate(BaseModel):
     destination_url: HttpUrl
     slug: str | None = None
 
+
+class LinkUpdate(BaseModel):
+    destination_url: HttpUrl | None = None
+    slug: str | None = None
+
 class LinkResponse(BaseModel):
     slug: str
     destination_url: str
